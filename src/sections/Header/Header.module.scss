@@ -1,0 +1,209 @@
+@import "@/styles/variables.scss";
+
+.header {
+  background: url("../../../public/assets/home/background-home-mobile.jpg")
+    no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+
+  .hamburger_button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.sidebar {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  right: 0px;
+  left: auto;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  z-index: 500;
+
+  &.show {
+    transform: translateX(0);
+  }
+}
+.sidebar_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 500;
+}
+.sidebar_menu {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40.774227142333984px);
+  max-width: 60%;
+  min-width: 254px;
+  flex-shrink: 0;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 34px 0px;
+  display: flex;
+  flex-direction: column;
+
+  .close_button {
+    align-self: flex-end;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 65px;
+    margin-right: 26px;
+    outline: none;
+  }
+
+  .mobile_menu {
+    align-items: stretch;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: $font-accent;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    gap: 32px;
+    letter-spacing: 2.7px;
+    line-height: normal;
+    text-transform: uppercase;
+
+    .mobile_menu_item {
+      align-items: center;
+      display: inline-flex;
+      gap: 11px;
+      height: 32px;
+      justify-content: flex-start;
+      padding-right: 0px;
+      padding: 0px 26px 0px 32px;
+      position: relative;
+
+      &:hover,
+      &:active {
+        backdrop-filter: blur(40.774227142333984px);
+
+        &::after {
+          content: "";
+          background-color: $white;
+          height: 100%;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 4px;
+        }
+      }
+
+      .item_number {
+        color: #fff;
+        font-family: $font-accent;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 2.7px;
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.menu_logo {
+  width: 40px;
+  height: 40px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.header_content {
+  .page_description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 112px auto;
+    max-width: 327px;
+    text-align: center;
+
+    h2 {
+      color: $light-gray;
+      text-align: center;
+      font-family: $font-accent;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 2.7px;
+    }
+    h1 {
+      color: $white;
+
+      text-align: center;
+      font-family: $font-primary;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100px;
+    }
+    p {
+      color: $light-gray;
+
+      text-align: center;
+      font-family: $font-body;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 25px;
+      max-width: 327px;
+    }
+  }
+
+  .header_cta {
+    align-items: center;
+    background-color: $white;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    outline: none;
+    width: 150px;
+
+    // Button text
+    color: $dark-blue;
+    cursor: pointer;
+    font-family: $font-primary;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1.25px;
+    line-height: normal;
+    margin: 0px auto;
+    text-align: center;
+  }
+}
