@@ -5,65 +5,80 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SliderCarousel = () => {
+import classNames from "classnames";
+import styles from "./SliderCarousel.module.scss";
+
+export type SlidesType = {
+  name: string;
+  images: {
+    png: string;
+    webp: string;
+  };
+  description: string;
+  distance: string;
+  travel: string;
+};
+
+type SliderCarouselProps = {
+  dots?: boolean;
+  topSlides: React.JSX.Element[];
+  thumbnails: string[];
+  bottomSlides: React.JSX.Element[];
+};
+
+const SliderCarousel = ({
+  dots,
+  topSlides,
+  thumbnails,
+  bottomSlides,
+}: SliderCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef<Slider>(null);
+  const sliderRef2 = useRef<Slider>(null);
 
   const settings = {
-    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (current: any, next: React.SetStateAction<number>) =>
       setActiveIndex(next),
+    fade: true,
     arrows: false,
+    dots: false,
   };
 
   const handleIndicatorClick = (index: number) => {
-    if (!sliderRef) return;
+    if (!sliderRef && !sliderRef2) return;
 
     sliderRef.current?.slickGoTo(index);
+    sliderRef2.current?.slickGoTo(index);
   };
 
   return (
     <div>
       <Slider ref={sliderRef} {...settings}>
-        <div>
-          {/* Your carousel content for slide 1 */}
-          Slide 1
-        </div>
-        <div>
-          {/* Your carousel content for slide 2 */}
-          Slide 2
-        </div>
-        <div>
-          {/* Your carousel content for slide 3 */}
-          Slide 3
-        </div>
-        {/* Add more slides as needed */}
+        {topSlides}
       </Slider>
 
       {/* Indicators */}
-      <div style={{ textAlign: "center", marginTop: "10px" }}>
-        {["Indicator 1", "Indicator 2", "Indicator 3"].map((text, index) => (
+      <div className={styles.thumbnails_container}>
+        {thumbnails.map((text, index) => (
           <span
             key={index}
-            style={{
-              display: "inline-block",
-              padding: "5px",
-              margin: "0 5px",
-              border: "1px solid gray",
-              borderRadius: "5px",
-              cursor: "pointer",
-              fontWeight: index === activeIndex ? "bold" : "normal",
-            }}
+            className={classNames(styles.thumbnails, {
+              [styles.active]: index === activeIndex,
+            })}
             onClick={() => handleIndicatorClick(index)}
           >
-            {text}
+            {dots ? "•" : text}
           </span>
         ))}
       </div>
+
+      <Slider ref={sliderRef2} {...settings}>
+        {bottomSlides}
+      </Slider>
     </div>
   );
 };

@@ -15,9 +15,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   box-sizing: border-box;
+  z-index: 450;
 
   .hamburger_button {
     background-color: transparent;
@@ -28,7 +29,7 @@
 }
 
 .sidebar {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100%;
   top: 0;
@@ -81,7 +82,7 @@
 
   .mobile_menu {
     align-items: stretch;
-    color: #fff;
+    color: $white;
     display: flex;
     flex-direction: column;
     font-family: $font-accent;
@@ -119,7 +120,7 @@
       }
 
       .item_number {
-        color: #fff;
+        color: $white;
         font-family: $font-accent;
         font-size: 16px;
         font-style: normal;

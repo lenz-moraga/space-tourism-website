@@ -1,6 +1,106 @@
+@import "@/styles/variables.scss";
+
 .destinations_container {
   background: url("../../../public/assets/destination/background-destination-mobile.jpg")
     no-repeat center center;
   background-size: cover;
   height: 100vh;
+  padding: 90px 24px 58px;
+  text-align: center;
+  box-sizing: border-box;
+
+  .destinations_section_title {
+    color: $white;
+    display: flex;
+    font-family: $font-accent;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    gap: 18px;
+    justify-content: center;
+    letter-spacing: 2.7px;
+    line-height: normal;
+    text-transform: uppercase;
+
+    span {
+      color: $white;
+      font-family: $font-accent;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 2.7px;
+      line-height: normal;
+      opacity: 0.25;
+    }
+  }
+
+  .destinations_image {
+    display: inline-block;
+    margin: 32px auto 26px;
+  }
+
+  .destinations_information {
+    .destinations_title {
+      color: $white;
+      font-family: $font-primary;
+      font-size: $heading-three;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      margin-top: 15px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .destinations_description {
+      color: $light-gray;
+      font-family: $font-body;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 25px;
+      margin: 0 auto;
+      max-width: 327px;
+      text-align: center;
+    }
+    .destinations_divider {
+      background: $darker-blue;
+      border: none;
+      flex-shrink: 0;
+      height: 1px;
+      margin: 32px 0px;
+      width: 100%;
+    }
+
+    .destinations_add_info {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      justify-content: center;
+
+      .destinations_add_info_value {
+        align-items: center;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        font-family: $font-primary;
+        font-size: $subheading-one;
+        font-style: normal;
+        font-weight: 400;
+        gap: 12px;
+        justify-content: center;
+        line-height: normal;
+        text-align: center;
+        text-transform: uppercase;
+
+        .destinations_add_info_label {
+          color: $light-gray;
+          font-family: $font-accent;
+          font-size: $subheading-two;
+          letter-spacing: 2.362px;
+        }
+      }
+    }
+  }
 }
