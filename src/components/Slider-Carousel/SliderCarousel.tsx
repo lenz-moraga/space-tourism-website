@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import classNames from "classnames";
 import styles from "./SliderCarousel.module.scss";
+import { text } from "stream/consumers";
 
 export type SlidesType = {
   name: string;
@@ -14,20 +15,24 @@ export type SlidesType = {
     png: string;
     webp: string;
   };
-  description: string;
-  distance: string;
-  travel: string;
+  // destinations
+  description?: string;
+  distance?: string;
+  travel?: string;
+  // crew
+  role?: string;
+  bio?: string;
 };
 
 type SliderCarouselProps = {
-  dots?: boolean;
+  indicatorsType?: "dots" | "text" | "numbers";
   topSlides: React.JSX.Element[];
   thumbnails: string[];
   bottomSlides: React.JSX.Element[];
 };
 
 const SliderCarousel = ({
-  dots,
+  indicatorsType,
   topSlides,
   thumbnails,
   bottomSlides,
@@ -55,6 +60,19 @@ const SliderCarousel = ({
     sliderRef2.current?.slickGoTo(index);
   };
 
+  const getSlideIndicators = (text: string) => {
+    switch (indicatorsType) {
+      case "dots":
+        return "•";
+      case "numbers":
+        return activeIndex + 1;
+      case "text":
+        return text;
+      default:
+        return thumbnails[activeIndex];
+    }
+  };
+
   return (
     <div>
       <Slider ref={sliderRef} {...settings}>
@@ -71,7 +89,7 @@ const SliderCarousel = ({
             })}
             onClick={() => handleIndicatorClick(index)}
           >
-            {dots ? "•" : text}
+            {getSlideIndicators(text)}
           </span>
         ))}
       </div>

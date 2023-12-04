@@ -8,7 +8,7 @@ import styles from "./Destinations.module.scss";
 import useFetchData from "@/hooks/useFetchData/useFetchData";
 import Image from "next/image";
 
-import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick.css";
 
 const Destinations = () => {
   const { data, loading, error } = useFetchData("/data.json", "destinations");
@@ -81,7 +81,7 @@ const Destinations = () => {
         <span>01</span>Pick your destination
       </h2>
       <SliderCarousel
-        dots={false}
+        indicatorsType={"text"}
         topSlides={topSlides}
         thumbnails={thumbnails}
         bottomSlides={bottomSlides}

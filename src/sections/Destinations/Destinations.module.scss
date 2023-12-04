@@ -4,7 +4,8 @@
   background: url("../../../public/assets/destination/background-destination-mobile.jpg")
     no-repeat center center;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 850px;
   padding: 90px 24px 58px;
   text-align: center;
   box-sizing: border-box;
@@ -52,6 +53,7 @@
       text-align: center;
       text-transform: uppercase;
     }
+    
     .destinations_description {
       color: $light-gray;
       font-family: $font-body;
@@ -63,6 +65,7 @@
       max-width: 327px;
       text-align: center;
     }
+
     .destinations_divider {
       background: $darker-blue;
       border: none;
